@@ -97,11 +97,14 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<br><br><br>
+<hr>
 </div>
 </template>
 
 <style>
 .achie{
+    margin-top: 50px;
     padding-top: 30px;
     padding-bottom: 30px;
 }

@@ -1,5 +1,8 @@
 <template>
+<div>
     <h1>Academics</h1>
+    
+</div>
 </template>
 
 </style>
@@ -22,3 +25,4 @@ h1{
     background-color: black;
     color: #42b983;
 }
+</style>

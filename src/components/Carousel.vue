@@ -1,4 +1,5 @@
 <template>
+<div>
     <div class="container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -8,7 +9,7 @@
             <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
         <div class="carousel-inner">
           <div class="carousel-item">
-            <img class="first-slide" src="@/assets/sasuke (1).jpg" alt="First slide" style=" height:100%; width:100%;">
+            <img class="first-slide" src="@/assets/0.jpg" alt="First slide" style=" height:100%; width:100%;">
             <div class="container">
               <div class="carousel-caption text-left">
                 <h1>Example headline.</h1>
@@ -44,5 +45,37 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
+      <br>
+      <br>
+      <br>
     </div>
+    <hr>
+</div>
 </template>
+
+<style>
+hr {
+  border: none;
+  border-top: 2px solid rgba(255,255,255,.3);
+  border-bottom: 2px solid rgba(0,0,0,.08);
+  margin: 2.5em 0;
+  position: relative;
+  margin: auto;
+  width: 90%;
+}
+hr:before,hr:after {
+  content: '';
+  position: absolute;
+  bottom:0px;
+  height: 5em;
+  width: 100%;
+  background: radial-gradient(ellipse at bottom, rgba(255,255,255,0.35) 0%,rgba(255,255,255,0) 70%);
+  z-index:0;
+}
+hr:after {
+  top:0px;
+  bottom:auto;
+  height: 1.5em;
+  background: radial-gradient(ellipse at top, rgba(0,0,0,0.06) 0%,rgba(0,0,0,0) 70%);
+}
+</style>

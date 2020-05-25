@@ -15,10 +15,13 @@
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-                <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+                <div>
+                    <router-link :to="{name: 'Signup'}">Don't have a account. Signup!</router-link>
+                </div>
             </form>
         </div>
     </div>
+    
 </template>
 
 <script>
@@ -43,6 +46,7 @@ export default {
     width: 100%;
     max-width: 330px;
     margin: 0px auto;
+    padding-bottom: 50px;
 }
 
 </style>
