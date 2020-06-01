@@ -6,42 +6,46 @@
         			<p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station.</p>
         		</div>
         		<div class="row latest_blog_inner">
-        			<div class="col-lg-3 col-md-6">
-        				<div class="l_blog_item">
-        					<img class="img-fluid" src="@/assets/l-blog-1.jpg" alt="">
-        					<a class="date1" href="#">25 October, 2018  |  By Mark Wiens</a>
-        					<a href="single-blog.html"><h4>Addiction When Gambling Becomes A Problem</h4></a>
-        					<p>Computers have become ubiquitous in almost every facet of our lives. At work, desk jockeys spend hours in front of their desktops, while delivery</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-md-6">
-        				<div class="l_blog_item">
-        					<img class="img-fluid" src="@/assets/l-blog-2.jpg" alt="">
-        					<a class="date1" href="#">25 October, 2018  |  By Mark Wiens</a>
-        					<a href="single-blog.html"><h4>Addiction When Gambling Becomes A Problem</h4></a>
-        					<p>Computers have become ubiquitous in almost every facet of our lives. At work, desk jockeys spend hours in front of their desktops, while delivery</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-md-6">
-        				<div class="l_blog_item">
-        					<img class="img-fluid" src="@/assets/l-blog-3.jpg" alt="">
-        					<a class="date1" href="#">25 October, 2018  |  By Mark Wiens</a>
-        					<a href="single-blog.html"><h4>Addiction When Gambling Becomes A Problem</h4></a>
-        					<p>Computers have become ubiquitous in almost every facet of our lives. At work, desk jockeys spend hours in front of their desktops, while delivery</p>
-        				</div>
-        			</div>
-        			<div class="col-lg-3 col-md-6">
-        				<div class="l_blog_item">
-        					<img class="img-fluid" src="@/assets/l-blog-4.jpg" alt="">
-        					<a class="date1" href="#">25 October, 2018  |  By Mark Wiens</a>
-        					<a href="single-blog.html"><h4>Addiction When Gambling Becomes A Problem</h4></a>
-        					<p>Computers have become ubiquitous in almost every facet of our lives. At work, desk jockeys spend hours in front of their desktops, while delivery</p>
-        				</div>
-        			</div>
+					
+						<div class="col-lg-3 col-md-6" v-for="article in articles" :key="article.id">
+							<div class="l_blog_item">
+								<img class="img-fluid" src="@/assets/l-blog-1.jpg" alt="">
+								<a class="date1" href="#">25 October, 2018  |  By {{ article.author }}</a>
+								<a href="single-blog.html"><h4>{{ article.title }}</h4></a>
+								<p>Computers have become ubiquitous in almost every facet of our lives. At work, desk jockeys spend hours in front of their desktops, while delivery</p>
+							</div>
+						</div>
+					
+        			
         		</div>
         	</div>
         </section>
 </template>
+
+<script>
+export default {
+	data() {
+		return {
+			articles: [],
+		}
+	},
+	methods: {
+
+	},
+	created(){
+		this.$http.get('https://jsonplaceholder.typicode.com/posts')
+		.then(response => {
+				var len = response.data.length;
+				this.articles = response.data.slice(len-4, len);
+				this.articles.reverse();
+				console.log(this.articles);
+            })
+        .catch(error => {
+            console.log(error)
+			})
+	}
+}
+</script>
 
 <style scoped>
 .latest_blog_area{

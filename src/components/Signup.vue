@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import common from '@/services/common.js'
 export default {
     name: 'Signup',
     data(){
@@ -72,8 +71,10 @@ export default {
         onSignup(){
             console.log({email: this.email, password: this.password, confirm_password: this.re_password})
             this.$http
-            .post('api/users', {
+            .post('url', {
                 name: this.name,
+                reg_num: this.reg_num,
+                roll_num: this.roll_num,
                 email: this.email,
                 password: this.password
             })

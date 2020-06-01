@@ -30,7 +30,7 @@
                 <router-link :to="{ name: 'Team'}" class="nav-link m-2 menu-item">Team</router-link>
             </li>
             <li class="nav-item ">
-                <router-link :to="{ name: 'Alumni'}" class="nav-link m-2 menu-item">Alumni</router-link>
+                <router-link :to="{ name: 'Blogs'}" class="nav-link m-2 menu-item">Blog</router-link>
             </li>
             <li class="nav-item">
                 <router-link :to="{ name: 'Login'}" class="nav-link m-2 menu-item">Login</router-link>

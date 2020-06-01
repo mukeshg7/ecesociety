@@ -5,6 +5,7 @@ import Academics from '@/components/Academics'
 import Team from '@/components/Team'
 import Login from '@/components/Login'
 import Signup from '@/components/Signup'
+import Blogs from '@/components/Blogs'
 
 Vue.use(Router)
 
@@ -35,5 +36,10 @@ export default new Router({
       name: 'Signup',
       component: Signup,
     },
+    {
+      path: '/blogs',
+      name: 'Blogs',
+      component: Blogs,
+    }
   ]
 })
