@@ -8,14 +8,14 @@
                                 id="name" placeholder="Name"/>
                             </div>
                             <div class="form-group">
-                                <label for="reg_num">Email: </label>
+                                <label for="reg_num">Registration No.: </label>
                                 <input type="text" name="reg_num" v-model="reg_num" 
-                                id="reg_num" :rules="[check_reg]" placeholder="xxUxxxx"/>
+                                id="reg_num" placeholder="xxUxxxx"/>
                             </div>
                             <div class="form-group">
-                                <label for="roll_num">Email: </label>
+                                <label for="roll_num">Roll No.: </label>
                                 <input type="text" name="roll_num" v-model="roll_num" 
-                                id="roll_num" :rules="[check_roll]" placeholder="xxECxxxx"/>
+                                id="roll_num" placeholder="xxECxxxx"/>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email: </label>
@@ -30,11 +30,11 @@
                             <div class="form-group">
                                 <label for="re-pass">Password again: </label>
                                 <input type="password" name="re_password" v-model="re_password" 
-                                id="re_password" placeholder="Confirm password"
-                                :rules="[confirmPassword]"/>
+                                id="re_password" placeholder="Confirm password"/>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                                <button @click="validate">Validate</button>
+                                <input type="submit" name="signup" disabled="ok" id="signup" class="form-submit" value="Register"/>
                             </div>
             </form>
     </div>
@@ -53,21 +53,32 @@ export default {
             re_password: "",
         }
     },
-    is_right: false,
+    is_right: true,
+    ok: false,
+
     methods: {
-        confirmPassword(){
+        validate(){
             if(this.password != this.re_password){
-                is_right = false
-                return "Passwords do no match" 
+                this.is_right = false
             }
-            else is_right = true
-        },
-        check_reg(){
 
-        },
-        check_roll(){
+            if(reg_num.length != 8 || roll_num.length != 8 || roll_num[2] != 'E' || roll_num[3] != 'C') this.is_right = false;
 
+            this.$http.get('url/users')
+            .then(response => {
+                var data = response.data;
+                if(data.reg_num.includes(this.reg_num)) this.is_right = false;
+                if(data.roll_num.includes(this.roll_num)) this.is_right = false;
+            })
+            .catch(error => console.log(error));
+
+            if(!this.is_right) alert("Invalid Credentials");
+            else {
+                alert("Valid Credentials");
+                this.ok = true;
+            }
         },
+        
         onSignup(){
             console.log({email: this.email, password: this.password, confirm_password: this.re_password})
             this.$http
