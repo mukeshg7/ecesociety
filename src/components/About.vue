@@ -1,40 +1,86 @@
 <template>
 <div>
-<div class="cont" align="center">
-    
-    <div id="main" class="row">
-        <div class="col-8">
-        <div id="about">
-            <h1>About</h1>
-            <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 
-                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi 
-                architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
-                sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
-                voluptatem sequi nesciunt.</p>
-        </div>
-    </div>
-    <div class="col-4">
-        <div id="notice">
-            <h1>Notice Board</h1>
-            <div id="content">
-               <li v-for="item in items" :key="item.message">
-                   <div class="inbox">
-                        <div class="row">
-                            <div class="date col-"><p>{{ item.day }}</p><p>{{ item.month }}</p></div> 
-                            <div class="col-sm">{{ item.message }}</div>
-                        </div>
-                   </div>
-               </li>
+    <div class="cont" align="center">
+        
+        <div id="main" class="row">
+
+            <div class="col-8">
+                <div id="about">
+                    <h1>About</h1>
+                    <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 
+                        laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi 
+                        architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
+                        sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
+                        voluptatem sequi nesciunt.</p>
+                </div>
             </div>
+
+
+            <div class="col-4">
+                <div id="notice">
+                    <h1>Notice Board</h1>
+
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        
+                        <div class="carousel-inner">
+                            <div class="page carousel-item active">
+                                <li v-for="item in items[0].notice" :key="item">
+                                    <div class="inbox">
+                                            <div class="row">
+                                                <div class="date col-"><p>{{ item.day }}</p><p>{{ item.month }}</p></div> 
+                                                <div class="col-sm">{{ item.message }}</div>
+                                            </div>
+                                    </div>
+                                </li>
+                            </div>
+                            <div class="page page carousel-item">
+                                <li v-for="item in items[1].notice" :key="item">
+                                    <div class="inbox">
+                                            <div class="row">
+                                                <div class="date col-"><p>{{ item.day }}</p><p>{{ item.month }}</p></div> 
+                                                <div class="col-sm">{{ item.message }}</div>
+                                            </div>
+                                    </div>
+                                </li>
+                            </div>
+                            <div class="page page carousel-item">
+                                <li v-for="item in items[2].notice" :key="item">
+                                    <div class="inbox">
+                                            <div class="row">
+                                                <div class="date col-"><p>{{ item.day }}</p><p>{{ item.month }}</p></div> 
+                                                <div class="col-sm">{{ item.title }}</div>
+                                            </div>
+                                    </div>
+                                </li>
+                            </div>
+                        </div>
+                        
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+
+                    </div>
+
+                </div>
+            </div>
+
         </div>
-    </div>
-    </div>
     </div>
     <hr>
 </div>
@@ -44,34 +90,30 @@
 export default {
     data(){
         return{
-            items:[
-                    {  
-                        message: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-                        day: "01",
-                        month: "MAY"
-                    },
-                    {
-                        message: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-                        day: "18",
-                        month: "APR"
-                    },
-                    {
-                        message: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-                        day: "11",
-                        month: "APR"
-                    },
-                    {
-                        message: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-                        day: "03",
-                        month: "APR"
-                    },
-                    {
-                        message: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
-                        day: "17",
-                        month: "MAR"
-                    },
-                ]
+            nums: [1,2,3],
+            items: [
+                { index: 0,  notice: [] },
+                { index: 1,  notice: [] },
+                { index: 2,  notice: [] },
+            ],
         }
+    },
+
+    methods: {
+        getNotice: function() {
+            this.http
+            .get('/api/notices')
+            .then(response => {
+                const data = response.data;
+                addData(data);
+            })
+            .catch(e => console.log(e))
+        },
+        addData: function(data) {
+        },
+    },
+    created() {
+        this.getNotice();
     }
 }
 </script>
@@ -95,7 +137,7 @@ li{
     padding-top: 5px;
     padding-bottom: 20px;
 }
-#content{
+.page{
     border: 2px solid gray;
     border-radius: 10px;
     padding: 2px 2px;
@@ -132,12 +174,7 @@ p{
     text-align: left;
     font-size: 20px;
 }
-.col-8{
-    
-}
-.col-4{
-  
-}
+
 #main{
     margin: 30px auto 20px;
 }
