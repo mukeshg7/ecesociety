@@ -2,13 +2,13 @@
     <div>
         <h1 class="login-head">Login</h1>
         <div class="text-center" data-gr-c-s-loaded="true">
-            <form class="form-signin">
+            <form @submit.prevent="login" class="form-signin">
                 <img class="mb-4" src="@/assets/nitdgp_logo_black.png" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
                 <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" v-model="email">
                 <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" v-model="password">
                 <div class="checkbox mb-3">
                     <label>
                         <input type="checkbox" value="remember-me"> Remember me
@@ -29,8 +29,27 @@ export default {
     name: 'Login',
     data(){
         return{
-
+            email: "",
+            password: "",
         }
+    },
+    methods: {
+        login: function() {
+            let data= {
+                email: this.email,
+                password: this.password,
+            }
+            this.$http
+            .post('/api/login', data)
+            .then(response => {
+                console.log("Logged In");
+                router.push("/team");
+            })
+            .catch(e => {
+                console.log("Cannot log in");
+                console.log(e);
+            })
+        },
     }
 }
 </script>

@@ -1,95 +1,26 @@
 <template>
     <div id="team">
         <h1>Meet the Team</h1>
-        <div class="row">
-  <div class="col-md-3">
-    <div class="card">
-        <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Name Name Name</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <div class="hover">
-        		<a href="#"><i class="fa fa-facebook"></i></a>
-        		<a href="#"><i class="fa fa-twitter"></i></a>
-        		<a href="#"><i class="fa fa-linkedin"></i></a>
+
+        <div class="body">
+
+            <div v-for="num in nums" :key="num">
+                <div class="grid-item" v-for="member in team[num].members" :key="member">
+
+                    <div class="card">
+                        <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ member.first_name }} {{ member.second_name }}</h5>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
         
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card">
-        <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Name Name Name</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card">
-        <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Name Name Name</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card">
-        <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Name Name Name</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-3">
-    <div class="card">
-        <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Name Name Name</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card">
-        <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Name Name Name</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card">
-        <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Name Name Name</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card">
-        <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Name Name Name</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
+
     </div>    
 </template>
 
@@ -98,8 +29,40 @@ export default {
     name: 'Login',
     data(){
         return{
-
+          nums: [0,1,2,3],
+          team: [
+            { year: "Final",  members: [1] },
+            { year: "Third",  members: [2] },
+            { year: "Second", members: [3] },
+            { year: "First",  members: [4] },
+          ],
         }
+    },
+
+    methods: {
+        getMember: function() {console.log("b");
+          this.$http
+          .get('api/members')
+          .then(response => {
+            const members = response.data;
+            members.forEach(member => {
+                segregate(member);
+            });
+          })
+          .catch(e => console.log(e))
+        },
+
+        segregate: function(member) {
+          if(member.year == 4) this.team[0].members.push(member);
+          else if(member.year == 3) this.team[1].members.push(member);
+          else if(member.year == 2) this.team[2].members.push(member);
+          else if(member.year == 1) this.team[3].members.push(member);
+        },
+     },
+
+    created() {
+      console.log("a");
+      this.getMember();
     }
 }
 </script>
@@ -112,28 +75,17 @@ export default {
     padding-bottom: 20px;
     color:black;
 }
+.body {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  padding: 10px;
+}
 
-.row{
-    padding: 10px 25px 10px 25px;
+.grid-item {
+  padding: 20px;
+  font-size: 30px;
+  max-width: 22rem;
+  text-align: center;
 }
-.fa__{
-  color: black;
-  display: inline-block;
-    font: normal ;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    cursor: pointer;
-    position: absolute;
-    left: 0px;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-    
-    transition: all 300ms linear 0s;
-}
-.fa-facebook {
-    color: rgb(59, 91, 152);
-  }
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="body">
         <h1>Blogs</h1>
         <div class="gallery">
             <div class="gallery-panel" v-for="article in articles" :key="article.id">
@@ -52,13 +52,16 @@ h1{
     padding-bottom: 20px;
     color:black;
 }
-
+.body {
+    align-content: center;
+}
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-    grid-gap: 5rem;
-    max-width: 100%;
-    
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 50px;
+    max-width: 80%;
+    right: 0px;
+    left: 0px;
 }
 .gallery-panel img {
     width: 100%;
