@@ -11,7 +11,7 @@
                         <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
                         <div class="card-body">
                           <h5 class="card-title">{{ member.first_name }} {{ member.second_name }}</h5>
-                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                          <p class="card-text">{{ member.email }}</p>
                         </div>
                     </div>
 
@@ -31,10 +31,10 @@ export default {
         return{
           nums: [0,1,2,3],
           team: [
-            { year: "Final",  members: [1] },
-            { year: "Third",  members: [2] },
-            { year: "Second", members: [3] },
-            { year: "First",  members: [4] },
+            { year: "Final",  members: [] },
+            { year: "Third",  members: [] },
+            { year: "Second", members: [] },
+            { year: "First",  members: [] },
           ],
         }
     },
@@ -42,14 +42,26 @@ export default {
     methods: {
         getMember: function() {console.log("b");
           this.$http
-          .get('api/members')
+          .get('http://localhost:8000/members', {
+            headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, GET, PUT, OPTIONS, DELETE',
+            'Access-Control-Allow-Headers': 'Access-Control-Allow-Methods, Access-Control-Allow-Origin, Origin, Accept, Content-Type',
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+          })
           .then(response => {
             const members = response.data;
             members.forEach(member => {
+              console.log("IN");
                 segregate(member);
             });
           })
-          .catch(e => console.log(e))
+          .catch(e => {
+            console.log("NOT IN");
+            console.log(e);
+          })
         },
 
         segregate: function(member) {

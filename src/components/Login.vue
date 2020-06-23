@@ -40,7 +40,7 @@ export default {
                 password: this.password,
             }
             this.$http
-            .post('/api/login', data)
+            .post('/login', data)
             .then(response => {
                 console.log("Logged In");
                 router.push("/team");

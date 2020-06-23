@@ -7,6 +7,11 @@ const path = require('path')
 module.exports = {
   dev: {
 
+    proxyTable: {
+      // proxy all requests starting with /conn to http://localhost:8000
+      '/api': 'http://localhost:8080',
+    },
+
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
