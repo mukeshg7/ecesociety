@@ -10,6 +10,7 @@
  import Navbar from '@/components/Navbar'
  import Footer from '@/components/Footer'
  import Home from '@/components/Home'
+ const API_URL = 'http://localhost:8000'
 
 export default {
   name: 'App',
