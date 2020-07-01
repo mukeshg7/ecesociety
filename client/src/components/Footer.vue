@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="every">
     <footer class="section footer-classic context-dark bg-image" style="background-color:#333333;">
         <div class="container">
             <div class="row row-30" style="color:white;">
@@ -57,12 +57,15 @@
 </template>
 
 <style scoped>
-
+.every {
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
 .container {
   bottom: 0px;
 }
 
-.contact-list, .ml-0 {
+.contact-list {
   padding-top: 10px;
 }
 .col-md-4{

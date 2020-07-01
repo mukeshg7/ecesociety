@@ -14,8 +14,8 @@
                           <h5 class="card-title">{{ member.name }}</h5>
                           <p class="card-text">{{ member.designation }}</p>
                           <a v-bind:href="member.fb"><i class="fab fa-facebook"></i></a>
-                          <a v-bind:href="member.ln"><i class="fab fa-linkedin-in"></i></a>
                           <a v-bind:href="`mailto:${member.email}`"><i class="fas fa-envelope"></i></a>
+                          <a v-bind:href="member.ln"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                     </div>
@@ -92,5 +92,19 @@ h2 {
 i {
   font-size: 30px;
   padding: 5px;
+  color:rgb(94, 93, 93)
+}
+.fa-linkedin:hover {
+  color:rgba(0, 87, 250, 0.884)
+}
+.fa-facebook:hover {
+  color: rgba(0, 89, 255, 0.678);
+}
+.fa-envelope:hover {
+  color: rgb(0, 0, 0)
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
+  text-align: center;
 }
 </style>

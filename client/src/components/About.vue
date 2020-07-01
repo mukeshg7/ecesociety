@@ -1,10 +1,10 @@
 <template>
 <div>
-    <div class="cont" align="center">
+    <div class="container" align="center">
         
         <div id="main" class="row">
 
-            <div class="col-md-8">
+            <div class="col-lg-8">
                 <div id="about">
                     <h1><strong>About</strong></h1>
                     <p>The embryonic formation of the Department of Electronics and Communication 
@@ -39,7 +39,7 @@
                                     <div class="inbox">
                                             <div class="row">
                                                 <div class="date col-"><p>{{ item.day }}</p><p>{{ item.month }}</p></div> 
-                                                <div class="col-sm">{{ item.message }}</div>
+                                                <div class="title col"><p>{{ item.message }} iig di  ejfoej eojw we wijfij.</p></div>
                                             </div>
                                     </div>
                                 </li>
@@ -49,7 +49,7 @@
                                     <div class="inbox">
                                             <div class="row">
                                                 <div class="date col-"><p>{{ item.day }}</p><p>{{ item.month }}</p></div> 
-                                                <div class="col-sm">{{ item.message }}</div>
+                                                <div class="title"><p>{{ item.message }}</p></div>
                                             </div>
                                     </div>
                                 </li>
@@ -59,7 +59,7 @@
                                     <div class="inbox">
                                             <div class="row">
                                                 <div class="date col-"><p>{{ item.day }}</p><p>{{ item.month }}</p></div> 
-                                                <div class="col-sm">{{ item.title }}</div>
+                                                <div class="title">{{ item.title }}</div>
                                             </div>
                                     </div>
                                 </li>
@@ -82,6 +82,8 @@
 
         </div>
     </div>
+    <br>
+    <br>
     <hr>
 </div>
 </template>
@@ -167,7 +169,7 @@ h1{
     padding: 2px 2px;
     background-color: #333333;
 }
-.col-sm{
+.title{
     font-weight:600;
 }
 .inbox{
@@ -196,7 +198,7 @@ h1{
 }
 p{
     text-align: left;
-    font-size: 20px;
+    font-size: 100%;
 }
 
 #main{
