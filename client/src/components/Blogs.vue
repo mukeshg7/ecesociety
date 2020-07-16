@@ -4,7 +4,7 @@
         <div class="container">
 
             <div v-if="articles.length === 0" align="center">
-                <p>No blogs to show :(</p>
+                <p>Blogs will be uploaded soon :)</p>
             </div>
 
 
@@ -15,7 +15,7 @@
                             <div class="card">
                             <img class="card-img-top" src="@/assets/l-blog-1.jpg" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">Date  |  {{ article.author }}</h5>
+                                    <h5 class="card-title">Date  |  {{ articles.length }}</h5>
                                     <p class="card-text">{{ article.title }}</p>
                                     <p>Brief</p>
                                     <a href="#" class="btn btn-primary">Read</a>
@@ -45,7 +45,7 @@ export default {
 
     },
     created() {
-        this.$http.get('')
+        this.$http.get('http://localhost:3000/blogs')
         .then(response => {
             this.articles = response.data;
         })
@@ -64,6 +64,9 @@ h1{
     padding-top: 20px;
     padding-bottom: 20px;
     color:black;
+}
+p {
+    font-size: 1cm;
 }
 .body {
     align-content: center;

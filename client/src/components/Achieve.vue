@@ -1,56 +1,6 @@
-<!--<template>
-    <div>
-        <h1>Achievements</h1> 
-        <div class="container">
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Name Name Name</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                        <i class="fab fa-facebook-f"></i>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card">
-                                    <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
-                                    <div class="card-body">
-                                    <h5 class="card-title">Name Name Name</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="@/assets/sasuke (1).jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="@/assets/holi.jpg" alt="Third slide">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>    
-        </div>  
-    </div>
-</template>-->
 <template>
 <div class="achie">
-    <h1><strong>Achievement</strong></h1>
+    <h1><strong>Achievements</strong></h1>
 <div id="carouselExampleIndicators" class="carousel slide testimonials_area container" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

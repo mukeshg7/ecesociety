@@ -63,6 +63,9 @@ hr {
   margin: auto;
   width: 90%;
 }
+li{
+  list-style: none;
+}
 hr:before,hr:after {
   content: '';
   position: absolute;

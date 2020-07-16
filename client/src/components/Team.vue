@@ -9,7 +9,7 @@
                 <div class="col-md-4" v-for="member in team[num].members" :key="member.year">
                   
                     <div class="card">
-                        <img class="card-img-top" src="@/assets/familyguy.png" alt="Card image cap">
+                        <img class="card-img-top" :src="member.image" alt="Card image cap">
                         <div class="card-body">
                           <h5 class="card-title">{{ member.name }}</h5>
                           <p class="card-text">{{ member.designation }}</p>
@@ -30,7 +30,7 @@
 
 <script>
 export default {
-    name: 'Login',
+    name: 'Team',
     data(){
         return{
           nums: [0,1,2,3],

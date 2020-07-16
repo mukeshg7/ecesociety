@@ -60,6 +60,7 @@
 .every {
   margin-top: 40px;
   margin-bottom: 0px;
+  bottom: 0px;
 }
 .container {
   bottom: 0px;

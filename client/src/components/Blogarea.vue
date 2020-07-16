@@ -50,6 +50,7 @@ export default {
 
 <style scoped>
 .latest_blog_area{
+	margin-top: 50px;
     margin-bottom: 60px;
 }
 .main_title{

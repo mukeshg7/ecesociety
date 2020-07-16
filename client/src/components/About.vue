@@ -44,26 +44,29 @@
                                     </div>
                                 </li>
                             </div>
-                            <div class="page page carousel-item">
-                                <li v-for="item in items[1].notice" :key="item.messgae">
-                                    <div class="inbox">
-                                            <div class="row">
-                                                <div class="date col-"><p>{{ item.day }}</p><p>{{ item.month }}</p></div> 
-                                                <div class="title"><p>{{ item.message }}</p></div>
-                                            </div>
-                                    </div>
-                                </li>
-                            </div>
-                            <div class="page page carousel-item">
-                                <li v-for="item in items[2].notice" :key="item.messgae">
-                                    <div class="inbox">
-                                            <div class="row">
-                                                <div class="date col-"><p>{{ item.day }}</p><p>{{ item.month }}</p></div> 
-                                                <div class="title">{{ item.title }}</div>
-                                            </div>
-                                    </div>
-                                </li>
-                            </div>
+                            
+                                <div class="page page carousel-item">
+                                    <li v-for="item in items[1].notice" :key="item.messgae">
+                                        <div class="inbox">
+                                                <div class="row">
+                                                    <div class="date col-"><p>{{ item.day }}</p><p>{{ item.month }}</p></div> 
+                                                    <div class="title"><p>{{ item.message }}</p></div>
+                                                </div>
+                                        </div>
+                                    </li>
+                                </div>
+                            
+                                <div class="page page carousel-item">
+                                    <li v-for="item in items[2].notice" :key="item.messgae">
+                                        <div class="inbox">
+                                                <div class="row">
+                                                    <div class="date col-"><p>{{ item.day }}</p><p>{{ item.month }}</p></div> 
+                                                    <div class="title">{{ item.title }}</div>
+                                                </div>
+                                        </div>
+                                    </li>
+                                </div>
+                            
                         </div>
                         
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -90,13 +93,14 @@
 
 <script>
 export default {
+    name: 'About',
     data(){
         return{
             nums: [1,2,3],
             items: [
                 { index: 0,  notice: [] },
-                { index: 1,  notice: [] },
-                { index: 2,  notice: [] },
+                { index: 1,  notice: [2] },
+                { index: 2,  notice: [3] },
             ],
             month: [
                 "JAN", 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'
@@ -138,7 +142,7 @@ export default {
     margin-bottom: 150px;
 }
 
-li{
+#notice li{
     text-align: left;
     list-style: none;
 }
@@ -146,15 +150,26 @@ li{
 h1{
   font-size: 50px;
 }
+.carousel-item p {
+    overflow:hidden
+}
 #about h1{
     text-align: center;
     padding-top: 5px;
     padding-bottom: 20px;
 }
+#about p{
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
 #notice h1{
     text-align: center;
     padding-top: 5px;
     padding-bottom: 20px;
+}
+.carousel-indicators {
+    height: 10px;
 }
 .carousel-control-prev {
     display: none;
