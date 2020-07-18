@@ -9,4 +9,6 @@ urlpatterns = [
     path('notice/<int:pk>/', views.NoticeDetail.as_view()),
     path('member/',views.MemberList.as_view()),
     path('member/<int:pk>',views.MemberDetail.as_view()),
+    path('achievement/',views.AchievementsList.as_view()),
+    path('achievement/<int:pk>',views.AchievementsDetail.as_view()),
 ]

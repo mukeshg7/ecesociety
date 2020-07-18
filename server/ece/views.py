@@ -27,6 +27,15 @@ class MemberDetail(generics.RetrieveUpdateDestroyAPIView):
 	queryset=Members.objects.all()
 	serializer_class=MemberSerializers
 
+class AchievementsList(generics.ListCreateAPIView):
+	queryset=Achievements.objects.all()
+	serializer_class=AchievementsSerializers
+
+class AchievementsDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset=Achievements.objects.all()
+	serializer_class=AchievementsSerializers
+
+
 
 
 

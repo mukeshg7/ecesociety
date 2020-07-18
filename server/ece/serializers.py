@@ -19,3 +19,9 @@ class MemberSerializers(serializers.ModelSerializer):
 		model=Members
 
 		fields=['id','name','image','email','phone','fb','ln','yr']
+
+class AchievementsSerializers(serializers.ModelSerializer):
+	class Meta:
+		model=Achievements
+
+		fields=['id','name','image','email','yr','achievement','fb','ln']
