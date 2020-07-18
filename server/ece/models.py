@@ -26,3 +26,12 @@ class Members(models.Model):
 	fb=models.URLField(null=True, blank=False)
 	ln=models.URLField(null=True, blank=False)
 	yr=models.IntegerField(null=True, blank=False)
+
+class Achievements(models.Model):
+	name=models.CharField(max_length=50, null= False)
+	image=models.ImageField(upload_to='achievements', default='default.jpg')
+	email=models.EmailField(null=True, blank=False)
+	achievement=models.TextField(null =True, blank=False)
+	yr=models.IntegerField(null=True, blank=False)
+	fb=models.URLField(null=True, blank=False)
+	ln=models.URLField(null=True, blank=False)
