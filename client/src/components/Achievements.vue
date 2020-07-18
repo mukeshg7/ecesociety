@@ -10,7 +10,7 @@
                         <div class="card">
                             <div class="row">
                                 <div class="col-lg-5 yyy">
-                                    <img src="//placehold.it/200" alt="">
+                                    <img src="@/assets/0.jpg" alt="">
                                 </div>
                                 <div class="col-lg-7">
                                     <p>
@@ -90,7 +90,7 @@ h1{
 img{
     width: 100%;
     height: 100%;
-    object-fit: fill;
+    object-fit:contain;
 }
 .xxx{
 }
