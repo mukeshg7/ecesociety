@@ -4,15 +4,15 @@
 
         <div class="container">
             <div v-for="num in nums" :key="num">
-              <h2>{{ team[num].year }} years</h2>
+              <h2></h2>
                 <div class="row">
-                <div class="col-md-4" v-for="member in team[num].members" :key="member.year">
+                <div class="col-lg-4" v-for="member in team[num].members" :key="member.designation">
                   
                     <div class="card">
                         <img class="card-img-top" :src="member.image" alt="Card image cap">
                         <div class="card-body">
-                          <h5 class="card-title">{{ member.name }}</h5>
-                          <p class="card-text">{{ member.designation }}</p>
+                          <h3 class="card-title"><strong>{{ member.name }}</strong></h3>
+                          <h4 class="card-text">{{ team[num].designation }}</h4>
                           <a v-bind:href="member.fb"><i class="fab fa-facebook"></i></a>
                           <a v-bind:href="`mailto:${member.email}`"><i class="fas fa-envelope"></i></a>
                           <a v-bind:href="member.ln"><i class="fab fa-linkedin"></i></a>
@@ -35,10 +35,11 @@ export default {
         return{
           nums: [0,1,2,3],
           team: [
-            { year: "Final",  members: [] },
-            { year: "Third",  members: [] },
-            { year: "Second", members: [] },
-            { year: "First",  members: [] },
+            { designation: "Chair",  members: [] },
+            { designation: "Secretary",  members: [] },
+            { designation: "Web Designer", members: [] },
+            { designation: "Graphic Designer",  members: [] },
+            { designation: "Executive member", members: []}
           ],
         }
     },
@@ -65,6 +66,7 @@ export default {
           else if(member.yr === 3) team[1].members.push(member);
           else if(member.yr === 2) team[2].members.push(member);
           else if(member.yr === 1) team[3].members.push(member);
+          else if(member.yr === 1) team[4].members.push(member);
         },
      },
 
@@ -93,6 +95,13 @@ i {
   font-size: 30px;
   padding: 5px;
   color:rgb(94, 93, 93)
+}
+.card{
+  width: 85%;
+}
+img {
+  width: 100%;
+  height: 100%;
 }
 .fa-linkedin:hover {
   color:rgba(0, 87, 250, 0.884)
