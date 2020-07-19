@@ -39,7 +39,7 @@
                                     <div class="inbox">
                                             <div class="row">
                                                 <div class="date col-"><p>{{ item.day }}</p><p>{{ item.month }}</p></div> 
-                                                <div class="title col"><p>{{ item.message }} iig di  ejfoej eojw we wijfij.</p></div>
+                                                <div class="title col"><p>{{ item.message }} iig di  ejfoej eojw we wijfij.iig di  ejfoej eojw we wijfij.iig di  ejfoej eojw we wijfij.</p></div>
                                             </div>
                                     </div>
                                 </li>
@@ -99,8 +99,8 @@ export default {
             nums: [1,2,3],
             items: [
                 { index: 0,  notice: [] },
-                { index: 1,  notice: [2] },
-                { index: 2,  notice: [3] },
+                { index: 1,  notice: [] },
+                { index: 2,  notice: [] },
             ],
             month: [
                 "JAN", 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'
@@ -168,6 +168,9 @@ h1{
     padding-top: 5px;
     padding-bottom: 20px;
 }
+.title{
+    overflow:hidden;
+}
 .carousel-indicators {
     height: 10px;
 }
@@ -194,6 +197,9 @@ h1{
     padding: 5px 5px;
     height: 80px;
     margin: 5px 5px;
+}
+.inbox p{
+    height: 78px;
 }
 .date{
     background-color: #494848;

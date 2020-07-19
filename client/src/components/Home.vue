@@ -3,8 +3,8 @@
     <Carousel/>
     <About/>
     <Cards/>
-    <Achieve/>
-    <!-- <Blogarea/> -->
+    <!-- <Achieve/> -->
+    <Blogarea/>
   </div>
 </template>
 
