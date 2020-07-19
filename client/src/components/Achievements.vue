@@ -6,7 +6,7 @@
             <h2><strong>Batch of {{item.year}}</strong></h2>
             <div class="row justify-content-around">
 
-                    <div v-for="guy in item.people" :key="guy.name" class="col-md-6 xxx">
+                    <div v-for="guy in item.people" :key="guy.id" class="col-md-6 xxx">
                         <div class="card">
                             <div class="row">
                                 <div class="col-lg-5 yyy">
@@ -14,7 +14,7 @@
                                 </div>
                                 <div class="col-lg-7">
                                     <p>
-                                        {{guy.message}}
+                                        {{guy.achievement}}
                                     </p>
                                 </div>
                             </div>
@@ -36,38 +36,31 @@ export default {
     data(){
         return {
             items: [
-                    { year:2020, people: [
-                        {name: 'aaa', message: 'Congaratulations to Mr.ongaratulations to Mr.ongaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                    ] },
-                    { year:2021, people: [
-                        {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                    ] },
-                    { year:2022, people: [
-                        {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                {name: 'aaa', message: 'Congaratulations to Mr. aaa for securing a rank of aaa in the aaaaa.'},
-                    ] },
+                    { year: 2020, people: [] },
+                    { year: 2021, people: [] },
+                    { year: 2022, people: [] },
                 ],
         }
     },
     methods: {
         getData: function() {
             this.$http
-                .get('http://localhost:8000/achievements')
+                .get('http://localhost:8000/achievement/')
                 .then(response => {
-                    this.items = response.data;
+                    var users = response.data;
+                    users.forEach(user => {
+                        if(user.yr > 2019) {
+                            this.segregate(user, this.items);
+                        }
+                    })
+                    this.items.reverse();
+                    console.log('a', this.items);
                 })
                 .catch(err => console.log(err));
+        },
+        segregate: (user, items) => {
+            let index = user.yr - 2020;
+            items[index].people.push(user);
         }
     },
     created() {
