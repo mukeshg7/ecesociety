@@ -24,9 +24,9 @@
                     <div class="col-md-4">
                         <h3 class="ml-0">Links</h3>
                         <ul class="nav-list ml-1" style="list-style-type:none;padding-left: 0;">
-                            <li >
+                            <!-- <li >
                               <router-link :to="{ name: 'Calender'}">Calender</router-link>
-                            </li>
+                            </li> -->
                             <li>
                               <router-link :to="{ name: 'Academics'}">Academics</router-link>
                             </li>
@@ -34,11 +34,14 @@
                               <a href="https://nitdgp.ac.in/department/EC/people">Faculty</a>
                             </li>
                             <li>
-                              <router-link :to="{ name:'Team' }">Team</router-link>
+                              <router-link :to="{ name: 'Achievements'}">Achievements</router-link>
                             </li>
                             <li>
-                              <router-link :to="{ name:'WebDTeam' }">WebDTeam</router-link>
+                              <router-link :to="{ name:'Team' }">Team</router-link>
                             </li>
+                            <!-- <li>
+                              <router-link :to="{ name:'WebDTeam' }">WebDTeam</router-link>
+                            </li> -->
                         </ul>
                     </div>
                 <div class="col-md-4">

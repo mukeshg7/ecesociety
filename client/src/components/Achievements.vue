@@ -87,7 +87,7 @@ img{
 }
 
 .card img, cardText{
-    padding: 10px 10px 10px 8px;
+    padding: 10px 10px 10px 30px;
 }
 .col-lg-5 {
     padding: 0px;
