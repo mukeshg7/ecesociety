@@ -85,13 +85,11 @@ img{
     height: 100%;
     object-fit:contain;
 }
-.xxx{
-}
 
 .card img, cardText{
     padding: 10px 10px 10px 8px;
 }
-.col-lg-5, {
+.col-lg-5 {
     padding: 0px;
 }
 .col-lg-7 p {
