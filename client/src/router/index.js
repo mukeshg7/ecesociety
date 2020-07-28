@@ -6,6 +6,7 @@ import Team from '@/components/Team'
 import Login from '@/components/Login'
 import Signup from '@/components/Signup'
 import Blogs from '@/components/Blogs'
+import Achievements from '@/components/Achievements'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/blogs',
       name: 'Blogs',
       component: Blogs,
+    },
+    {
+      path: '/achievements',
+      name: 'Achievements',
+      component: Achievements
     }
   ]
 })

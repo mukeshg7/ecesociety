@@ -6,7 +6,7 @@
         		</div>
 
 					<div v-if="articles.length === 0" align="center">
-						<p>No Blogs to show :(</p>
+						<h3>Coming Soon : )</h3>
 					</div>
 					
 					<div v-else class="row latest_blog_inner">
@@ -28,7 +28,7 @@
 export default {
 	data() {
 		return {
-			articles: [1],
+			articles: [],
 		}
 	},
 	methods: {
@@ -50,6 +50,7 @@ export default {
 
 <style scoped>
 .latest_blog_area{
+	margin-top: 50px;
     margin-bottom: 60px;
 }
 .main_title{
@@ -90,6 +91,12 @@ h4{
 	margin-bottom: 20px;
     font-weight: bold;
 	transition: all 300ms linear;
+}
+h3 {
+	color: #737373;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+    font-weight: bold;
 }
 l_blog_item p{
 	margin-bottom: 0px;
