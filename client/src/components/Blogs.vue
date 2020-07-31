@@ -45,7 +45,7 @@ export default {
 
     },
     created() {
-        this.$http.get('http://localhost:3000/blogs')
+        this.$http.get('http://rounak1812.pythonanywhere.com/blogs')
         .then(response => {
             this.articles = response.data;
         })

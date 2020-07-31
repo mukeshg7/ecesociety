@@ -47,7 +47,7 @@ export default {
     methods: {
         getMember: function() {
           this.$http
-          .get('http://localhost:8000/member/')
+          .get('http://rounak1812.pythonanywhere.com/member/')
           .then(response => {console.log(this.team);
             var members = response.data;
              members.forEach(member => {

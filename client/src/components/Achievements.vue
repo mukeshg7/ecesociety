@@ -45,7 +45,7 @@ export default {
     methods: {
         getData: function() {
             this.$http
-                .get('http://localhost:8000/achievement/')
+                .get('http://rounak1812.pythonanywhere.com/achievement/')
                 .then(response => {
                     var users = response.data;
                     users.forEach(user => {

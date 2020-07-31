@@ -123,7 +123,7 @@ export default {
         },
         getNotice: function() {
             this.$http
-            .get('http://localhost:8000/notice/')
+            .get('http://rounak1812.pythonanywhere.com/notice/')
             .then(response => {
                 this.addData(response.data, this.items, this.month);
             })

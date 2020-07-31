@@ -36,7 +36,7 @@ export default {
 	},
 	created(){
 		this.$http
-		.get('http://localhost:8000/blogs')
+		.get('http://rounak1812.pythonanywhere.com/blogs')
 		.then(response => {
 				let len = response.data.length;
 				this.articles = response.data.slice(0, Math.min(4, len));
