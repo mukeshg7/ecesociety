@@ -11,7 +11,7 @@
     "deploy": "npm run build"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "mdbvue": "^6.7.1",
     "vue": "^2.5.2",
     "vue-axios": "^2.1.5",
